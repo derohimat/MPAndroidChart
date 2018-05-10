@@ -75,7 +75,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
             final float barWidthHalf = barWidth / 2.0f;
             float x;
 
-            for (int i = 0, count = Math.min((int)(Math.ceil((float)(dataSet.getEntryCount()) * phaseX)), dataSet.getEntryCount());
+            for (int i = 0, count = Math.min((int) (Math.ceil((float) (dataSet.getEntryCount()) * phaseX)), dataSet.getEntryCount());
                  i < count;
                  i++) {
 
@@ -171,9 +171,12 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
             for (int i = 0; i < mChart.getBarData().getDataSetCount(); i++) {
 
                 IBarDataSet dataSet = dataSets.get(i);
-
-                if (!shouldDrawValues(dataSet))
+                if (dataSet.getEntryCount() == 0) {
                     continue;
+                }
+                if (!shouldDrawValues(dataSet)) {
+                    continue;
+                }
 
                 boolean isInverted = mChart.isInverted(dataSet.getAxisDependency());
 
@@ -244,8 +247,8 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
                             Utils.drawImage(
                                     c,
                                     icon,
-                                    (int)px,
-                                    (int)py,
+                                    (int) px,
+                                    (int) py,
                                     icon.getIntrinsicWidth(),
                                     icon.getIntrinsicHeight());
                         }
@@ -313,8 +316,8 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
                                 Utils.drawImage(
                                         c,
                                         icon,
-                                        (int)px,
-                                        (int)py,
+                                        (int) px,
+                                        (int) py,
                                         icon.getIntrinsicWidth(),
                                         icon.getIntrinsicHeight());
                             }
@@ -390,8 +393,8 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
                                     Utils.drawImage(
                                             c,
                                             icon,
-                                            (int)(x + iconsOffset.x),
-                                            (int)(y + iconsOffset.y),
+                                            (int) (x + iconsOffset.x),
+                                            (int) (y + iconsOffset.y),
                                             icon.getIntrinsicWidth(),
                                             icon.getIntrinsicHeight());
                                 }
