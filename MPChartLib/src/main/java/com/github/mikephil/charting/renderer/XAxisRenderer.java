@@ -91,10 +91,8 @@ public class XAxisRenderer extends AxisRenderer {
                 mXAxis.getLabelRotationAngle());
 
 
-        mXAxis.mLabelWidth = Math.round(labelWidth);
-        mXAxis.mLabelHeight = Math.round(labelHeight);
-        mXAxis.mLabelRotatedWidth = Math.round(labelRotatedSize.width);
-        mXAxis.mLabelRotatedHeight = Math.round(labelRotatedSize.height);
+        mXAxis.mLabelWidth = Math.round(labelRotatedSize.width);
+        mXAxis.mLabelHeight = Math.round(labelRotatedSize.height);
 
         FSize.recycleInstance(labelRotatedSize);
         FSize.recycleInstance(labelSize);
@@ -108,8 +106,6 @@ public class XAxisRenderer extends AxisRenderer {
 
         float yoffset = mXAxis.getYOffset();
 
-        mAxisLabelPaint.setTypeface(mXAxis.getTypeface());
-        mAxisLabelPaint.setTextSize(mXAxis.getTextSize());
         mAxisLabelPaint.setColor(mXAxis.getTextColor());
 
         MPPointF pointF = MPPointF.getInstance(0,0);
@@ -121,7 +117,7 @@ public class XAxisRenderer extends AxisRenderer {
         } else if (mXAxis.getPosition() == XAxisPosition.TOP_INSIDE) {
             pointF.x = 0.5f;
             pointF.y = 1.0f;
-            drawLabels(c, mViewPortHandler.contentTop() + yoffset + mXAxis.mLabelRotatedHeight, pointF);
+            drawLabels(c, mViewPortHandler.contentTop() + yoffset + mXAxis.mLabelHeight, pointF);
 
         } else if (mXAxis.getPosition() == XAxisPosition.BOTTOM) {
             pointF.x = 0.5f;
@@ -131,7 +127,7 @@ public class XAxisRenderer extends AxisRenderer {
         } else if (mXAxis.getPosition() == XAxisPosition.BOTTOM_INSIDE) {
             pointF.x = 0.5f;
             pointF.y = 0.0f;
-            drawLabels(c, mViewPortHandler.contentBottom() - yoffset - mXAxis.mLabelRotatedHeight, pointF);
+            drawLabels(c, mViewPortHandler.contentBottom() - yoffset - mXAxis.mLabelHeight, pointF);
 
         } else { // BOTH SIDED
             pointF.x = 0.5f;
