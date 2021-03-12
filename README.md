@@ -7,7 +7,7 @@
 
 [**Charts**](https://github.com/danielgindi/Charts) is the iOS version of this library
 
-## Table of Contents
+# Table of Contents
 1. [Quick Start](#quick-start)
     1. [Gradle](#gradle-setup)
     1. [Maven](#maven-setup)
